@@ -1,0 +1,41 @@
+<h4>Listado</h4>
+<ul class="list-group">
+
+    <!-- Definimos i igual al index que ya viene por default -->
+<!-- 
+    first: Nos dice si es el primer elemento 
+    last: Nos dice si es el ultimo elemento
+    even: Nos dice si es par
+
+- ngClass nos permite añadir clases de manera condicional
+
+-->
+
+    <li *ngFor="let character of characterList; 
+                let i = index;
+                let isFirst = first;
+                let isLast = last;
+                let isEven = even;
+                "
+         class="list-group-item d-flex justify-content-between align-items-center"
+         [ngClass]="{
+              'list-group-item-dark': isLast, 
+              'list-group-item-success': isEven 
+            }" 
+         
+         >
+        <div>
+            <span class="text-primary id-item"> {{i + 1 }} </span>
+            <span>{{character.name}} - </span>
+            <strong>power: </strong>
+            <span>{{character.power}}</span>    
+        </div>
+
+        <!-- <span>Es el primero: {{ isFirst }}</span> -->
+        <!-- <span>Es el último {{ isLast }}</span> -->
+        <!-- <span>Es par {{ isEven }}</span> -->
+
+            <button (click)="deleteCharacter(i)" class="btn btn-danger w-2 btn-sm border border-1 border-danger rounded-lg">X</button>
+    </li>
+</ul>
+

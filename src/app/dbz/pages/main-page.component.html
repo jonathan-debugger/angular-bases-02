@@ -1,0 +1,17 @@
+<h1>DBZ, Personajes</h1>
+<hr>
+<div class="row">
+    <div class="col">
+        <!-- El onDelete es el event emiter y el 
+            ondeleteCharacter es el metodo del padre al cual le enviamos el evento  -->
+        <dbz-list (onDelete)="onDeleteCharacter($event)" [characterList]="characters"></dbz-list>
+    </div>
+    <div class="col">
+    <!--  
+        () los parentecis en los atributos son eventos y los 
+        [] son atributos
+    -->
+
+        <dbz-add-character (onNewCharacter)="characterHeredado($event)"></dbz-add-character>
+    </div>
+</div>
